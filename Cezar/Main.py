@@ -22,7 +22,6 @@ def CheckAffineKey(a, b):
         if (a * i) % 26 == 1:
             a_inv = i
             check2 = 1
-    print(check," ",check2, a_inv)
     if check == check2 == 1:
         return a_inv
     return -1
@@ -55,7 +54,6 @@ def CaesarCipher(key, text):
             text[i] = ascii_uppercase[a]
 
     text = ''.join(text)
-    print(text)
     open(os.path.join(ROOT_DIR, "crypto.txt"), "w").write(text)
 
 def AffineCipher(a, b, text):
@@ -69,7 +67,6 @@ def AffineCipher(a, b, text):
             text[i] = ascii_uppercase[x]
 
     text = ''.join(text)
-    print(text)
     open(os.path.join(ROOT_DIR, "crypto.txt"), "w").write(text)
 
 
@@ -101,7 +98,6 @@ def CaesarDecipher(key, text):
             text[i] = ascii_uppercase[a]
 
     text = ''.join(text)
-    print(text)
     open(os.path.join(ROOT_DIR, "decrypt.txt"), "a").write(text+'\n')
 
 def AffineDecipher(a, b, text):
@@ -115,7 +111,6 @@ def AffineDecipher(a, b, text):
             text[i] = ascii_uppercase[x]
 
     text = ''.join(text)
-    print(text)
     open(os.path.join(ROOT_DIR, "decrypt.txt"), "a").write(text+'\n')
 
 
@@ -125,6 +120,7 @@ def Analysis(mode, crypto, extra):
         key = int(key[0], 10)
         if key > 0 and key < 26:
             CaesarDecipher(key, text)
+        print("Wrong key")
         return -1
         
     elif mode == "-a":
@@ -148,6 +144,14 @@ def CaesarBrute(crypto):
     for j in range(1, 26):
         print(j, " ", crypto)
         CaesarDecipher(j, crypto)
+
+def AffineBrute(crypto):
+    for i in range(1, 26):
+        for j in range(1, 26):
+            inv = CheckAffineKey(i, j)
+            if inv != -1:
+                AffineDecipher(inv, j, crypto)
+
 
 def main():
     if(args[1] == "-e"):
