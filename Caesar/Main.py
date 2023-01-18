@@ -117,19 +117,77 @@ def AffineDecipher(a, b, text):
 #Analysis part
 def Analysis(mode, crypto, extra):
     if mode == "-c":
-        key = int(key[0], 10)
-        if key > 0 and key < 26:
-            CaesarDecipher(key, text)
-        print("Wrong key")
-        return -1
+        CaesarAnalysis(crypto, extra)
         
     elif mode == "-a":
-        a = int(key[0])
-        b = int(key[1])
-        a_inv = CheckAffineKey(a, b)
-        if a_inv < 0:
-            return -1
-        AffineDecipher(a_inv, b, text)
+        AffineAnalysis(crypto, extra)
+
+def CaesarAnalysis(crypto, extra):
+    crypto = list(crypto)
+    extra = list(extra)
+    check = False
+    key = 0
+    for j in range(0, len(extra)):
+        for i in range(1, 26):
+            if check == True:
+                i = key
+            if crypto[j] in ascii_lowercase:
+                a = (ascii_lowercase.find(crypto[j]) - i) % 26
+                if ascii_lowercase[a] == extra[j]:
+                    check = True
+            if crypto[j] in ascii_uppercase:
+                a = (ascii_uppercase.find(crypto[j]) - i) % 26
+                if ascii_uppercase[a] == extra[j]:
+                    check = True
+            if check == True:
+                key = i
+            else:
+                 key = 0
+                 check = False
+    if key == 0:
+        print("Cannot find key")
+    else:
+        crypto = ''.join(crypto)
+        CaesarDecipher(key, crypto)
+
+
+    
+
+def AffineAnalysis(crypto, extra):
+    crypto = list(crypto)
+    extra = list(extra)
+    check = False
+    a = 0
+    b = 0
+    for j in range(0, len(extra)):
+        for i in range(1, 26):
+            inv = CheckAffineKey(i, 1)
+            for n in range(1, 26):
+                if check == True:
+                    i = a
+                    inv = CheckAffineKey(i, n)
+                    n = b
+                if crypto[j] in ascii_lowercase:
+                    x = (inv * (ascii_lowercase.find(crypto[j]) - n)) % 26
+                    if ascii_lowercase[x] == extra[j]:
+                        check = True
+                if crypto[j] in ascii_uppercase:
+                    x = (inv * (ascii_uppercase.find(crypto[j]) - n)) % 26
+                    if ascii_uppercase[x] == extra[j]:
+                        check = True
+                if check == True:
+                    a = i
+                    b = n
+                else:
+                    a = 0
+                    b = 0
+                    check = False
+    if a == 0 or b == 0:
+        print("Cannot find key")
+    else:
+        crypto = ''.join(crypto)
+        print(a, b)
+        AffineDecipher(a, b, crypto)
 
 
 #BruteForce part
