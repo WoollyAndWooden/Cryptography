@@ -22,7 +22,7 @@ def main():
         plain = plain.replace(',', '')
         remain = len(plain) % 64
         plain = plain.lower()
-        for i in range(remain):
+        for i in range(remain+1):
             plain = plain + " "
         file.close()
         print(len(plain))
@@ -44,10 +44,7 @@ def main():
             line = line.replace('\n', '')
             
             for i in range(0, 64):
-                if ''.join(chr(ord(key[i]) ^ ord(line[i]))) == "\n":
-                    print("Fuck "+ key[i] + line[i])
                 crypto.write(''.join(chr(ord(key[i]) ^ ord(line[i]))))
-
         crypto.close()
         plain.close()
 
@@ -55,11 +52,9 @@ def main():
         crypto = open(os.path.join(ROOT_DIR, "crypto.txt"), "r")
         d = []
         j = 0
-        for line in crypto:
-            for i in line:
-                d.append(i)
-        key = []
-        print(len(d))
+        decrypt = crypto.read()
+        print(len(decrypt))
+
         
 
 
