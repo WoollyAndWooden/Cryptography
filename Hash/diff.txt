@@ -1,0 +1,42 @@
+hash-.pdf personal_.txt by shamd5
+hash-.pdf personal.txt by shamd5
+0x8cad2670872dde843818a01a75a7c0b
+0x54c84b2a03eb1eb3669a95810ba530b7
+Bit differnce: 62 out of 127, 48%
+
+
+hash-.pdf personal_.txt by sha1
+hash-.pdf personal.txt by sha1
+0x42d7299f3a151aca1e526eb8a0d9519613ff98db
+0x50e9610ae1e9685078673bf24b72969313ad835a
+Bit differnce: 75 out of 157, 47%
+
+
+hash-.pdf personal_.txt by sha224
+hash-.pdf personal.txt by sha224
+0xdff2609c1b82ea39dc6ac637c391812f4c6400f40349900c05341185
+0xe347004e0fd23e61ace657b0fddf2f6aa2eef13fe1b11f9285ed2272
+Bit differnce: 111 out of 222, 50%
+
+
+hash-.pdf personal_.txt by sha256
+hash-.pdf personal.txt by sha256
+0x3d33b1505b2cad59e620e7a952d93047255fd7c616a63cbe3003ad08ddb9ab3f
+0xa62434c7c909e0e6e8e25d535a4196b9b3708a9bcce440a5aa780b78adcf1bc2
+Bit differnce: 136 out of 256, 53%
+
+
+hash-.pdf personal_.txt by sha384
+hash-.pdf personal.txt by sha384
+0x124207e7382d4134937791b9571a6efdd91312ef41b74153a72b1aa3016e9df092e9f643fed94bf904ddb37326d53f3a
+0x63007073328b770c9c5d5edfc704f4fc782fea0b072b8c6965b3ba5e974839ecf170617d914a55c34fd73fe89c74c1dc
+Bit differnce: 186 out of 383, 48%
+
+
+hash-.pdf personal_.txt by sha512
+hash-.pdf personal.txt by sha512
+0x720aef7589a62c0489c47abaf789979ba1a5fc799555f61f9dfbcbc517c837ecb522a3003a27ee6a327076c37ea169c2cb03a0f6b748b0b0636741de9b063955
+0xd49ca2c2f6543ab4fcb8b6e30c87190bd99abe3f04b77b38dc2c946cbe59500be7d6b6cc2827d8a83b5aa7b9cb4b135cc4204f22157ca31ab872dfb04fa29848
+Bit differnce: 258 out of 512, 50%
+
+
